@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="mdui-theme-auto">
+<head>
+    <meta charset="UTF-8">
+    <title>CPS 测试</title>
+    <style>
+        body {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; text-align: center; }
+        #result { margin-top: 20px; font-size: 24px;}
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+</head>
+    <body><mdui-top-app-bar>
+        <mdui-button-icon onclick="navigationDrawer.open=true" icon="menu" id="openDrawer"></mdui-button-icon>
+        <mdui-top-app-bar-title>CPS 测试</mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-dropdown>
+            <mdui-button-icon slot="trigger" icon="domain--two-tone"></mdui-button-icon>
+            <mdui-menu>
+                <mdui-menu-item onclick="window.location.href='https://hfc2307.top'">HFC2307.top</mdui-menu-item>
+                <mdui-menu-item onclick="window.location.href='https://07s.top'">07s.top</mdui-menu-item>
+            </mdui-menu>
+        </mdui-dropdown>
+    </mdui-top-app-bar>
+
+    <mdui-navigation-drawer close-on-overlay-click close-on-esc modal="true" class="drawer">
+        <mdui-button-icon onclick="navigationDrawer.open=false" icon="close--rounded" style="float: left;top: 20px; left:20px;"></mdui-button-icon>
+        <!--
+            <div style="margin: 0;padding: 0;position: absolute;bottom: 20px;left: 20px;">
+                <mdui-switch>
+                    <mdui-icon></mdui-icon>
+                    <mdui-icon slot="checked-icon" name="keyboard"></mdui-icon>
+                </mdui-switch> <span>不可用</span>
+            </div>
+        -->
+        <mdui-button onclick="dialog.open = true;" id="openDialog" style="margin: 0;padding: 0;position: absolute;bottom: 20px;left: 20px;">testlastdialog</mdui-button>
+    </mdui-navigation-drawer>
+
+    <mdui-button icon="refresh" id="resetButton">重置</mdui-button><br></br>
+    <mdui-button id="clickButton">点?</mdui-button>
+    <div id="result">点击数: 0, CPS: None</div>
+    <div id="timer">时间: 默认为 10s，单击左下角以设置</div>
+    <div style="margin: 0;padding: 0;position: absolute;bottom: 20px;left: 20px;">
+    <mdui-dropdown trigger="hover">
+        <mdui-fab icon="edit" slot="trigger"></mdui-fab>
+        <mdui-menu>
+            <mdui-menu-item id="timeset5s">5s</mdui-menu-item>
+            <mdui-menu-item id="timeset10s">10s</mdui-menu-item>
+            <mdui-menu-item id="timeset20s">20s</mdui-menu-item></mdui-menu>
+    </mdui-dropdown>
+    </div>
+    <mdui-dialog fullscreen class="example-fullscreen">
+        <div id="dialogshowresult" style="font-size:24px;">点击数: 0, CPS: None</div>
+        <div id="dialogshowtime" style="font-size:20px;"></div>
+        <mdui-button id="dialogCloseButton" style="margin: 0;padding: 0;position: absolute;bottom: 20px;left: 20px;">关闭</mdui-button>
+    </mdui-dialog>
+
+    <script src="./scripts/pageDrawer.js"></script>
+    <script src="./scripts/lastDialog.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
